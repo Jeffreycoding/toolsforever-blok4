@@ -5,9 +5,7 @@ if (isset($_POST['submit'])) {
         if (!empty($_POST['email']) && !empty($_POST['password'])) {
             $emailForm = $_POST['email'];
             $passwordForm = $_POST['password'];
-
-            $conn = mysqli_connect('mariadb', 'root', 'password', 'tools4ever');
-
+require 'database.php';
             $sql = "SELECT * FROM users WHERE email='$emailForm'";
             $result = mysqli_query($conn, $sql);
 

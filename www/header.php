@@ -20,17 +20,17 @@
                 <li><a href="index.php">Home</a></li>
                 <li><a href="brands_index.php">Merken</a></li>
                 <li><a href="">Winkelmand</a></li>
+                <li><a href="users_index.php">Gebruikers</a></li>
+                <li><a href="tools_index.php">Gereedschap</a></li>
                 <?php if (isset($_SESSION['user_id'])) : ?>
                     <li><a href="dashboard.php">Dashboard</a></li>
                     <li class="dropdown">
-                        <a href="">Gebruikers</a>
                         <div class="dropdown-content">
                             <a href="users_index.php">Bekijken</a>
                             <a href="users_create.php">Toevoegen</a>
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a href="">Gereedschap</a>
                         <div class="dropdown-content">
                             <a href="tools_index.php">Bekijken</a>
                             <a href="tools_create.php">Toevoegen</a>

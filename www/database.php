@@ -1,9 +1,9 @@
 <?php
 
 //database connection   
-$dbhost = "mariadb";
+$dbhost = "localhost";
 $dbuser = "root";
-$dbpass = "password";
+$dbpass = "";
 $dbname = "tools4ever";
 
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);

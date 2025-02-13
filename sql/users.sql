@@ -43,10 +43,10 @@ CREATE TABLE `users` (
 -- Gegevens worden geëxporteerd voor tabel `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `password`, `firstname`, `lastname`, `address`, `city`, `is_active`, `role`) VALUES
-(1, 'admin@admin.com', 'password', 'Admin', NULL, NULL, NULL, 1, 'admin'),
-(2, 'adriaan@adriaan.com', 'password', 'Adriaan', 'Adriaan', 'acrobaatstraat 5', 'Hilversum', 1, 'employee'),
-(3, 'bassie@bassie.com', 'password', 'Bassie', 'Bassie', 'clownstraat 1', 'Hilversum', 1, 'employee');
+  INSERT INTO `users` (`id`, `email`, `password`, `firstname`, `lastname`, `address`, `city`, `is_active`, `role`) VALUES
+  (1, 'admin@admin.com', 'password', 'Admin', NULL, NULL, NULL, 1, 'admin'),
+  (2, 'adriaan@adriaan.com', 'password', 'Adriaan', 'Adriaan', 'acrobaatstraat 5', 'Hilversum', 1, 'employee'),
+  (3, 'bassie@bassie.com', 'password', 'Bassie', 'Bassie', 'clownstraat 1', 'Hilversum', 1, 'employee');
 
 --
 -- Indexen voor geëxporteerde tabellen

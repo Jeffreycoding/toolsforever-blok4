@@ -42,10 +42,8 @@ require 'header.php';
                     <td>
 
                         <a href="tools_detail.php?id=<?php echo $tool['tool_id'] ?>">Bekijk</a>
-                        Wijzig
-                        Verwijder
-                        <!-- <a href="tools_edit.php?id=<?php echo $tool['tool_id'] ?>">Wijzig</a>
-                        <a href="tools_delete.php?id=<?php echo $tool['tool_id'] ?>">Verwijder</a> -->
+                         <a href="tools_edit.php?id=<?php echo $tool['tool_id'] ?>">Wijzig</a>
+                        <a href="tools_delete.php?id=<?php echo $tool['tool_id'] ?>">Verwijder</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
