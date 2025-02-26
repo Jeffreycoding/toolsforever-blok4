@@ -6,23 +6,27 @@ if (isset($_POST['submit'])) {
             $emailForm = $_POST['email'];
             $passwordForm = $_POST['password'];
 require 'database.php';
-            $sql = "SELECT * FROM users WHERE email='$emailForm'";
-            $result = mysqli_query($conn, $sql);
 
-            //als de email bestaat dan is het resultaat groter dan 0
-            if (mysqli_num_rows($result) > 0) {
+$sql = "SELECT * FROM users WHERE email = :email";
+$stmt = $conn->prepare($sql);
+$stmt->execute(
+    [
+        ':email' => $emailForm
+    ]
+);
+$user = $stmt->fetch();
+
 
                 //resultaat gevonden? Dan maken we een user-array $dbuser
-                $dbuser = mysqli_fetch_assoc($result);
 
-                if ($dbuser['password'] == $passwordForm) {
+                if ($user['password'] == $passwordForm) {
 
                     session_start();
-                    $_SESSION['user_id']    = $dbuser['id'];
-                    $_SESSION['email']      = $dbuser['email'];
-                    $_SESSION['firstname']  = $dbuser['firstname'];
-                    $_SESSION['lastname']   = $dbuser['lastname'];
-                    $_SESSION['role']       = $dbuser['role'];
+                    $_SESSION['user_id']    = $user['id'];
+                    $_SESSION['email']      = $user['email'];
+                    $_SESSION['firstname']  = $user['firstname'];
+                    $_SESSION['lastname']   = $user['lastname'];
+                    $_SESSION['role']       = $user['role'];
 
                     // echo "You are logged in";
                     header("Location: dashboard.php");
@@ -43,6 +47,5 @@ require 'database.php';
             }
         }
     }
-}
 
 include 'footer.php';

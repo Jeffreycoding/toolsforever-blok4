@@ -11,11 +11,12 @@ if ($_SESSION['role'] != 'administrator') {
     echo "You are not allowed to view this page, please login as admin";
     exit;
 }
-require 'database.php';
+require_once 'database.php';
 
-$sql = "SELECT * FROM users";
-$result = mysqli_query($conn, $sql);
-$users = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$query = "SELECT * FROM users"; //deze code had je al staan
+$stmt = $conn->prepare($query);
+$stmt->execute();
+$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 require 'header.php';
 ?>

@@ -14,7 +14,11 @@ if ($_SESSION['role'] != 'administrator') {
     exit;
 }
 
-require 'database.php';
+require_once 'database.php';
+
+$sql = "UPDATE users SET name = :name, email = :email, password = :password WHERE id = :id";
+$stmt = $conn->prepare($sql);
+$stmt->execute(['name' => $name, 'email' => $email, 'password' => $password, 'id' => $id]);
 
 $sql = "SELECT * FROM users WHERE id = $id";
 $result = mysqli_query($conn, $sql);

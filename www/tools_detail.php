@@ -1,7 +1,12 @@
 <?php
 session_start();
 
-require 'database.php';
+require_once 'database.php';
+
+$sql = "SELECT * FROM tools WHERE id = :id  ";
+$stmt = $conn->prepare($sql);
+$stmt->execute(['id' => $id]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (isset($_GET['id'])) {
     $tool_id = $_GET['id'];

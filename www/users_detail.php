@@ -2,7 +2,12 @@
 
 session_start();
 
-require 'database.php';
+require_once 'database.php';
+
+$sql = "SELECT * FROM users WHERE id = :id  ";
+$stmt = $conn->prepare($sql);
+$stmt->execute(['id' => $id]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!isset($_SESSION['user_id'])) {
     echo "You are not logged in, please login. ";

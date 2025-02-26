@@ -12,8 +12,13 @@ if ($_SESSION['role'] != 'administrator') {
     exit;
 }
 
-require 'database.php';
+//users_create.php
+require_once 'database.php';
 require 'header.php';
+$sql = "INSERT INTO users (name, email, password) VALUES (:name, :email, :password)";
+$stmt = $conn->prepare($sql);
+$stmt->execute(['name' => $name, 'email' => $email, 'password' => $password]);
+
 
 ?>
 
